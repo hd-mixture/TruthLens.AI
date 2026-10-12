@@ -1,0 +1,230 @@
+{
+  "primary_model": "Logistic Regression",
+  "total_samples": 385,
+  "train_samples": 308,
+  "test_samples": 77,
+  "class_distribution": {
+    "REAL": 235,
+    "FAKE": 150
+  },
+  "vocabulary_size": 2074,
+  "ngram_range": [
+    1,
+    2
+  ],
+  "models": {
+    "Logistic Regression": {
+      "accuracy": 100.0,
+      "precision": 100.0,
+      "recall": 100.0,
+      "f1_score": 100.0,
+      "confusion_matrix": {
+        "true_negative_real": 47,
+        "false_positive_fake": 0,
+        "false_negative_real": 0,
+        "true_positive_fake": 30
+      }
+    },
+    "Multinomial Naive Bayes": {
+      "accuracy": 100.0,
+      "precision": 100.0,
+      "recall": 100.0,
+      "f1_score": 100.0,
+      "confusion_matrix": {
+        "true_negative_real": 47,
+        "false_positive_fake": 0,
+        "false_negative_real": 0,
+        "true_positive_fake": 30
+      }
+    },
+    "Linear SVM": {
+      "accuracy": 100.0,
+      "precision": 100.0,
+      "recall": 100.0,
+      "f1_score": 100.0,
+      "confusion_matrix": {
+        "true_negative_real": 47,
+        "false_positive_fake": 0,
+        "false_negative_real": 0,
+        "true_positive_fake": 30
+      }
+    },
+    "Random Forest": {
+      "accuracy": 94.81,
+      "precision": 100.0,
+      "recall": 86.67,
+      "f1_score": 92.86,
+      "confusion_matrix": {
+        "true_negative_real": 47,
+        "false_positive_fake": 0,
+        "false_negative_real": 4,
+        "true_positive_fake": 26
+      }
+    }
+  },
+  "primary_metrics": {
+    "accuracy": 100.0,
+    "precision": 100.0,
+    "recall": 100.0,
+    "f1_score": 100.0,
+    "confusion_matrix": {
+      "true_negative_real": 47,
+      "false_positive_fake": 0,
+      "false_negative_real": 0,
+      "true_positive_fake": 30
+    }
+  },
+  "top_features": {
+    "fake_indicators": [
+      {
+        "word": "secret",
+        "weight": 1.496
+      },
+      {
+        "word": "completely",
+        "weight": 1.093
+      },
+      {
+        "word": "shocking",
+        "weight": 1.025
+      },
+      {
+        "word": "banned",
+        "weight": 0.884
+      },
+      {
+        "word": "everyone",
+        "weight": 0.88
+      },
+      {
+        "word": "mainstream",
+        "weight": 0.836
+      },
+      {
+        "word": "forward",
+        "weight": 0.836
+      },
+      {
+        "word": "media",
+        "weight": 0.836
+      },
+      {
+        "word": "mainstream media",
+        "weight": 0.836
+      },
+      {
+        "word": "secretly",
+        "weight": 0.829
+      },
+      {
+        "word": "watch",
+        "weight": 0.8
+      },
+      {
+        "word": "share",
+        "weight": 0.791
+      },
+      {
+        "word": "wake",
+        "weight": 0.781
+      },
+      {
+        "word": "love",
+        "weight": 0.767
+      },
+      {
+        "word": "covering completely",
+        "weight": 0.767
+      }
+    ],
+    "real_indicators": [
+      {
+        "word": "protocols",
+        "weight": 0.946
+      },
+      {
+        "word": "reports",
+        "weight": 0.812
+      },
+      {
+        "word": "administrative",
+        "weight": 0.763
+      },
+      {
+        "word": "observers",
+        "weight": 0.761
+      },
+      {
+        "word": "according",
+        "weight": 0.76
+      },
+      {
+        "word": "published",
+        "weight": 0.751
+      },
+      {
+        "word": "released",
+        "weight": 0.716
+      },
+      {
+        "word": "adherence",
+        "weight": 0.711
+      },
+      {
+        "word": "held",
+        "weight": 0.707
+      },
+      {
+        "word": "following",
+        "weight": 0.699
+      },
+      {
+        "word": "verified administrative",
+        "weight": 0.699
+      },
+      {
+        "word": "report",
+        "weight": 0.699
+      },
+      {
+        "word": "independent",
+        "weight": 0.699
+      },
+      {
+        "word": "independent observers",
+        "weight": 0.699
+      },
+      {
+        "word": "official report",
+        "weight": 0.699
+      }
+    ]
+  },
+  "pipeline_description": [
+    {
+      "step": 1,
+      "title": "Dataset Ingestion & Stratified Split",
+      "desc": "Ingested 385 samples (235 REAL, 150 FAKE); 80/20 train/test stratified split."
+    },
+    {
+      "step": 2,
+      "title": "Text Preprocessing & Normalization",
+      "desc": "Lowercasing, regex URL/HTML stripping, punctuation normalization, domain-aware stop-word removal."
+    },
+    {
+      "step": 3,
+      "title": "TF-IDF N-Gram Vectorization",
+      "desc": "Vocabulary of 2074 unigrams and bigrams with sublinear term-frequency scaling."
+    },
+    {
+      "step": 4,
+      "title": "Multi-Model Benchmarking",
+      "desc": "Evaluated Logistic Regression, Multinomial Naive Bayes, Linear SVM, and Random Forest."
+    },
+    {
+      "step": 5,
+      "title": "Model Persistence & Serving",
+      "desc": "Saved scikit-learn pipeline artifacts to joblib for sub-millisecond REST inference."
+    }
+  ]
+}
